@@ -5,18 +5,24 @@ public:
             return false;
         
 
-        long int num , rev = 0, rem = 0;
+        long int num=x , rev = 0, rem = 0;
         
 	
-        while(num != 0)
+        while(num!= 0)
         {
+            
             rem = num%10;
+            cout<<rem<<" ";
+            
             rev = rev*10 + rem;
-            num/= 10;
+            cout<<rev<<" ";
+            num=num/10;
+            cout<<num;
         }
         
+        cout<<x<<" "<<rev;
 	
-        if(num == rev)
+        if(x == rev)
             return true;  
         else
             return false;
