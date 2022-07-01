@@ -1,20 +1,20 @@
 class Solution {
 public:
-    void recursion(int j, vector<int> nums, vector<vector<int>> &ans){
-        if(j>=nums.size()){
-            ans.push_back(nums);
+    void permute(vector<int>&A,vector<vector<int>>&ans,int cid){
+        if(cid==A.size()){
+            ans.push_back(A);
             return;
         }
-        for(int i=j;i<nums.size();i++){
-            swap(nums[j],nums[i]);
-            recursion(j+1,nums,ans);
-            swap(nums[j],nums[i]);
+        for(int j=cid;j<A.size();j++){
+            swap(A[cid],A[j]);
+            permute(A,ans,cid+1);
+            swap(A[cid],A[j]);
         }
     }
-    vector<vector<int>> permute(vector<int>& nums) {
+    vector<vector<int>> permute(vector<int>& A) {
         vector<vector<int>> ans;
-        int index=0;
-        recursion(index,nums,ans);
+
+        permute(A,ans,0);
         return ans;
     }
 };
